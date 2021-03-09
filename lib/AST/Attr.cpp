@@ -1550,6 +1550,10 @@ llvm::VersionTuple AvailableAttr::getActiveVersion(const ASTContext &ctx) const 
 
 AvailableVersionComparison AvailableAttr::getVersionAvailability(
   const ASTContext &ctx) const {
+  
+  if (ctx.LangOpts.DisableAvailabilityChecking) {
+    return AvailableVersionComparison::Available;
+  }
 
   // Unconditional unavailability.
   if (isUnconditionallyUnavailable())
