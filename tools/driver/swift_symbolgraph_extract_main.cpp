@@ -164,6 +164,7 @@ int swift_symbolgraph_extract_main(ArrayRef<const char *> Args, const char *Argv
 
   Invocation.getLangOptions().EnableObjCInterop = llvm::Triple(options::Target).isOSDarwin();
   Invocation.getLangOptions().DebuggerSupport = true;
+  Invocation.getLangOptions().DisableAvailabilityChecking = true;
 
   Invocation.getFrontendOptions().EnableLibraryEvolution = true;
 
